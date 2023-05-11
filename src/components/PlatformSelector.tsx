@@ -56,8 +56,6 @@ const PlatformSelector = ({ onSelectPlatform }: Props) => {
     <Menu>
       <MenuButton
         onClick={() => setOpen(!isOpen)}
-        marginStart={3}
-        marginBottom={4}
         as={Button}
         rightIcon={!isOpen ? <FaChevronCircleDown /> : <FaChevronCircleUp />}
       >
