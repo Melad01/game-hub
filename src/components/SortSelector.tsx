@@ -8,7 +8,6 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa";
-import useData from "../hooks/useData";
 import { usePlatforms } from "../hooks/usePlatforms";
 
 interface Props {
