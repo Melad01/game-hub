@@ -1,6 +1,15 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  Skeleton,
+} from "@chakra-ui/react";
 import { useState } from "react";
 import { FaChevronCircleDown, FaChevronCircleUp } from "react-icons/fa";
+import useData from "../hooks/useData";
+import { usePlatforms } from "../hooks/usePlatforms";
 
 interface Props {
   onSelectOrder: (order: string) => void;
@@ -9,6 +18,7 @@ interface Props {
 const SortSelector = ({ onSelectOrder }: Props) => {
   const [isOpen, setOpen] = useState(false);
   const [sorting, setSorting] = useState("Revelance");
+  const { error, isLoading } = usePlatforms();
 
   const sortOrders = [
     { value: "", label: "Revelance" },
@@ -18,6 +28,11 @@ const SortSelector = ({ onSelectOrder }: Props) => {
     { value: "-metacritic", label: "Popularity" },
     { value: "-rating", label: "Average Rating" },
   ];
+
+  if (error) return null;
+
+  if (isLoading)
+    return <Skeleton height="40px" width="180px" marginStart={4} />;
 
   return (
     <Menu>
