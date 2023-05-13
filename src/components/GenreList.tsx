@@ -1,11 +1,11 @@
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
   SkeletonText,
-  Text,
 } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 import getCroppedImageUrl from "../services/image-url";
@@ -32,12 +32,12 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
 
   return (
     <>
-      <Text fontSize="32px" color="whiteAlpha.900" fontWeight="bold">
+      <Heading as="h1" marginBottom={5}>
         Genres
-      </Text>
+      </Heading>
       <List>
         {data.map((genre) => (
-          <ListItem key={genre.id} paddingY="5px">
+          <ListItem key={genre.id} paddingY="1px">
             <HStack>
               <Image
                 boxSize="32px"
